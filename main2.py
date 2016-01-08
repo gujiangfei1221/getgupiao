@@ -168,10 +168,10 @@ def test_global_index_data():
 
 def main():
     "main function"
-    print(base64.b64decode(b'Q29weXJpZ2h0IChjKSAyMDEyIERvdWN1YmUgSW5jLiBBbGwgcmlnaHRzIHJlc2VydmVkLg==').decode())
-    test_china_index_data()
+    #print(base64.b64decode(b'Q29weXJpZ2h0IChjKSAyMDEyIERvdWN1YmUgSW5jLiBBbGwgcmlnaHRzIHJlc2VydmVkLg==').decode())
+    #test_china_index_data()
     test_china_individual_data()
-    test_global_index_data()
+    #test_global_index_data()
 
 if __name__ == '__main__':
     main()
