@@ -6,7 +6,8 @@ import re
 
 gupiaolists = []
 gupiaolists2 = []
-gupiaolists3 = []
+gupiaonolist = []
+gupiaonamelist = []
 
 f= urllib.request.urlopen('http://hq.gucheng.com/gpdmylb.html')
 content = f.read().decode('gb2312')
@@ -19,6 +20,8 @@ for item in items:
 for gupiaolist in gupiaolists:
     # print(gupiaolist[1])
     gupiaolists2.append(gupiaolist[1].split('('))
-    gupiaolists3.append(gupiaolist[0].split('('))
+    gupiaonolist.append(gupiaolist[0].split('('))
+
+print(gupiaolists2)
 
 
