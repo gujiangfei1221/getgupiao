@@ -18,10 +18,19 @@ for item in items:
     gupiaolists.append(item.split('>'))
 
 for gupiaolist in gupiaolists:
-    # print(gupiaolist[1])
+    # print(gupiaolist[1].split('('))
     gupiaolists2.append(gupiaolist[1].split('('))
-    gupiaonolist.append(gupiaolist[0].split('('))
+    gupiaonolist.append(gupiaolist[0])
 
-print(gupiaolists2)
+for gupiaolist2 in gupiaolists2:
+    gupiaonamelist.append(gupiaolist2[0])
 
+# print(gupiaolists)
+# print(gupiaonamelist)
+# print(gupiaonolist)
+
+nvs = zip(gupiaonolist,gupiaonamelist)
+nvDict = dict( (name,value) for name,value in nvs)
+
+print(nvDict)
 
