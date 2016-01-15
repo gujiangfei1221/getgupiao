@@ -32,5 +32,10 @@ for gupiaolist2 in gupiaolists2:
 nvs = zip(gupiaonolist,gupiaonamelist)
 nvDict = dict( (name,value) for name,value in nvs)
 
-print(nvDict)
+# print(nvDict.items())
 
+m = open('m.txt','r+')
+m.truncate()
+for key,value in nvDict.items():
+    m.writelines(key+','+value+'\r')
+m.close()
