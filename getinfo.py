@@ -3,11 +3,16 @@
 
 import os, io, sys, re, time, json, base64
 import webbrowser, urllib.request
+import getgupiaono
 
 ChinaStockIndividualList = [
-    "000063", #  中兴通讯
-    "600036", #  招商银行
 ]
+
+dict0 = getgupiaono.getgupiaono()
+print(type(dict0))
+# for key,value in dict:
+#     ChinaStockIndividualList.append(value)
+# print(ChinaStockIndividualList)
 
 #国内股票数据：个股
 def getChinaStockIndividualInfo(stockCode):
