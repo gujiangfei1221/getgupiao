@@ -1,5 +1,5 @@
 #!/usr/local/bin/python3
-#coding=utf-8
+#-*- coding=utf-8 -*-
 
 import os, io, sys, re, time, json, base64
 import webbrowser, urllib.request
@@ -9,17 +9,8 @@ ChinaStockIndividualList = [
     "600036", #  招商银行
 ]
 
-period_All_List = [
-                    "min",      #分时线
-                    "daily",    #日K线
-                    "weekly",   #周K线
-                    "monthly"   #月K线
-                  ]
-
-period_min = period_All_List[0]
-
 #国内股票数据：个股
-def getChinaStockIndividualInfo(stockCode, period):
+def getChinaStockIndividualInfo(stockCode):
     try:
         exchange = "sh" if (int(stockCode) // 100000 == 6) else "sz"
         dataUrl = "http://hq.sinajs.cn/list=" + exchange + stockCode
@@ -46,8 +37,7 @@ def getChinaStockIndividualInfo(stockCode, period):
         + ",总手:" + str(stockVolume) + "万" + ",金额:" + str(stockMoney) \
         + "亿" + ",更新时间:" + stockTime + "  "
 
-        imgUrl = "http://image.sinajs.cn/newchart/" + period + "/n/" + exchange + str(stockCode) + ".gif"
-        twitter = {'message': content, 'image': imgUrl}
+        twitter = {'message': content}
 
     except Exception as e:
         print(">>>>>> Exception: " + str(e))
@@ -58,8 +48,8 @@ def getChinaStockIndividualInfo(stockCode, period):
 
 def test_china_individual_data():
     for stockCode in ChinaStockIndividualList:
-        twitter = getChinaStockIndividualInfo(stockCode, period_min)
-        print(twitter['message'] + twitter['image'])
+        twitter = getChinaStockIndividualInfo(stockCode)
+        print(twitter['message'])
 
 #主函数
 def main():
