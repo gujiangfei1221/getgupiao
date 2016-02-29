@@ -1,5 +1,5 @@
 #!/usr/local/bin/python3
-#coding=utf-8
+#-*- coding=utf-8 -*-
 
 import urllib.request
 import re
@@ -33,7 +33,12 @@ def getgupiaono():
 #主函数
 def main():
     "main function"
-    getgupiaono()
+    f = open('gupiao.txt','r+')
+    for k,v in getgupiaono().items():
+        f.write(k+v)
+        f.write('\r\n')
+    f.close()
+
 
 if __name__ == '__main__':
     main()
