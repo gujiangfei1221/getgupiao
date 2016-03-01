@@ -8,9 +8,11 @@ ChinaStockIndividualList = [
     'sz002310','sz000713'
 ]
 
+day = 3
+
 
 #国内股票数据：个股
-def getChinaStockIndividualInfo(stockCode):
+def getChinaStockIndividualInfo(stockCode,day):
     try:
         #exchange = "sh" if (int(stockCode) // 100000 == 6) else "sz"
         dataUrl = "http://hq.sinajs.cn/list=" + stockCode
@@ -39,19 +41,22 @@ def getChinaStockIndividualInfo(stockCode):
 
         if(os.path.exists('data/'+(stockName+stockCode)+'.txt')):
             f = open('data/'+(stockName+stockCode)+'.txt','r+')
-            num = len(f.readlines())
-            print(num)
-            # f = open('data/东方园林sz002310.txt','r+')
             line = f.readlines()
-            if(num > 3):
-                for i in range(1,num - 3):
-                    del line[i]
+            num = len(line)
+            # print(num)
+            if(num > day):
+                for i in range(0,num - day):
+                    line.pop(i)
             f.close()
+            f2 = open('data/'+(stockName+stockCode)+'.txt','w')
+            for i in line:
+                f2.writelines(i)
+            f2.close()
 
-        f = open('data/'+(stockName+stockCode)+'.txt','a+')
-        f.write(stockMax + "#" + stockMin + "#" + stockCur)
-        f.write('\r\n')
-        f.close()
+        f3 = open('data/'+(stockName+stockCode)+'.txt','a+')
+        f3.write(stockMax + "#" + stockMin + "#" + stockCur)
+        f3.write('\n')
+        f3.close()
 
 
 
@@ -68,7 +73,7 @@ def getChinaStockIndividualInfo(stockCode):
 
 def test_china_individual_data():
     for stockCode in ChinaStockIndividualList:
-        getChinaStockIndividualInfo(stockCode)
+        getChinaStockIndividualInfo(stockCode,day)
 
 #主函数
 def main():

@@ -35,7 +35,7 @@ def main():
     "main function"
     f = open('gupiao.txt','r+')
     for k,v in getgupiaono().items():
-        f.write(k+v)
+        f.write(k+'#'+v)
         f.write('\r\n')
     f.close()
 
