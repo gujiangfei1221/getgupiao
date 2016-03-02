@@ -28,6 +28,17 @@ def getgupiaono():
     nvs = zip(gupiaonolist,gupiaonamelist)
     nvDict = dict( (name,value) for name,value in nvs)
 
+    tmp = []
+    tmp2 = []
+    for k,v in nvDict.items():
+        if '*' in v:
+            continue
+        else:
+            tmp.append(k)
+            tmp2.append(v)
+    print(tmp)
+    print(tmp2)
+
     return nvDict
 
 #主函数
