@@ -9,7 +9,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
         namelist = []
         nolist = []
         minlist = []
-        f = open('data/'+filename,'r+')
+        f = open('data2/'+filename,'r+')
         for i in f.readlines():
             tmp = i.split('#')
             namelist.append(tmp[0])
