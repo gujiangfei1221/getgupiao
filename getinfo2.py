@@ -364,6 +364,7 @@ def test_china_individual_data():
 def main():
     "main function"
     test_china_individual_data()
+    print('ok!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
 
 if __name__ == '__main__':
