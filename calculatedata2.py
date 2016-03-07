@@ -21,6 +21,6 @@ for parent,dirnames,filenames in os.walk(rootdir):
         minlist.sort()
 
         f2 = open('result2/'+filename,'w')
-        f2.write(namelist[0]+'#'+nolist[0]+'#'+minlist[0])
+        f2.write(minlist[0])
         f2.close()
         # print(maxlist,minlist,pricelist)
