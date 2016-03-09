@@ -35,7 +35,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
             conn=pymysql.connect(host='localhost',user='root',passwd='root',db='codeigniter',port=3306,charset='utf8')
             cur=conn.cursor()#获取一个游标
             cur.execute('update gupiaoinfo set latestlowprice ='+ list[3]+',latesthighprice ='+ list[2]+',price = '+ list[4]+',longlowprice ='+ list[5]+',jiazhipaixu ='+ str(jiazhipaixu1)+' ,fengxianpaixu = '+ str(fengxianpaixu1)+' where gupiaoname =\''+ list[0]+'\'')
-            # cur.execute('insert into gupiaoinfo(gupiaoname,latestlowprice,latesthighprice,longlowprice,price,jiazhipaixu,fengxianpaixu) values(\''+list[0]+'\',\''+list[3]+'\',\''+list[2]+'\',\''+list[5]+'\',\''+list[4]+'\',\''+str(jiazhipaixu1)+'\',\''+str(fengxianpaixu1)+'\')')
+            # cur.execute('insert into gupiaoinfo(gupiaoname,gupiaono,latestlowprice,latesthighprice,longlowprice,price,jiazhipaixu,fengxianpaixu) values(\''+list[0]+'\',\''+list[1]+'\',\''+list[3]+'\',\''+list[2]+'\',\''+list[5]+'\',\''+list[4]+'\',\''+str(jiazhipaixu1)+'\',\''+str(fengxianpaixu1)+'\')')
             conn.commit();
             cur.close()#关闭游标
             conn.close()#释放数据库资源
