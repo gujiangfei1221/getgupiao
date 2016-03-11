@@ -1,6 +1,7 @@
 #-*- coding=utf-8 -*-
 import pymysql
 import os.path
+import time
 
 rootdir = 'result/'
 
@@ -25,6 +26,10 @@ for parent,dirnames,filenames in os.walk(rootdir):
         else:
             fengxianpaixu1 = 0
 
+        f3 = open('result3/'+filename, 'a+')
+        f3.write(str(jiazhipaixu1)+'#'+str(fengxianpaixu1)+'#'+time.strftime("%Y-%m-%d", time.localtime()))
+        f3.write('\n')
+        f3.close()
 
         #['gupiaoname','gupiaono','latesthighprice','latestlowprice','price','longhighprice','jiazhipaixu','fengxianpaixu']
         # print('insert into gupiaoinfo(gupiaoname,latestlowprice,latesthighprice,longlowprice,price) values(\''+list2[0]+'\',\''+list2[3]+'\',\''+list2[2]+'\',\''+list2[5]+'\',\''+list2[4]+'\')')
