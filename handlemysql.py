@@ -44,6 +44,6 @@ for parent,dirnames,filenames in os.walk(rootdir):
             conn.commit();
             cur.close()#关闭游标
             conn.close()#释放数据库资源
-        except  Exception:
-            raise
+        except  Exception as e:
+            print(e.args)
 print('ok!!!!!!!!!!!!!!!!!')
