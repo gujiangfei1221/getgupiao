@@ -27,7 +27,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
             fengxianpaixu1 = 0
 
         f3 = open('result3/'+filename, 'a+')
-        f3.write(str(jiazhipaixu1)+'#'+str(fengxianpaixu1)+'#'+time.strftime("%Y-%m-%d", time.localtime()))
+        f3.write(str(jiazhipaixu1)+'#'+str(fengxianpaixu1)+'#'+time.strftime("%Y-%m-%d", time.localtime())+'#')
         f3.write('\n')
         f3.close()
 
