@@ -43,6 +43,7 @@ def main():
             f2.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['长期最低价']))
             f2.write('\n')
             f2.close()
+    print('ok!!!!!!!!!!!!!!!!')
 
 if __name__ == "__main__":
     main()
