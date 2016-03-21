@@ -16,16 +16,23 @@ for parent,dirnames,filenames in os.walk(rootdir):
             tmp = i.split('#')
             namelist.append(tmp[0])
             nolist.append(tmp[1])
-            maxlist.append(tmp[2])
-            minlist.append(tmp[3])
+            if(tmp[2] != ''):
+                maxlist.append(float(tmp[2]))
+            else:
+                # maxlist.append(0.0)
+                continue
+            if(tmp[3] != ''):
+                minlist.append(float(tmp[3]))
+            else:
+                # minlist.append(0.0)
+                continue
             pricelist.append(tmp[4])
         f.close()
-
         #排序
         maxlist.sort(reverse= True)
-        minlist.sort()
+        minlist.sort(reverse= False)
 
         f2 = open('result/'+filename,'w')
-        f2.write(namelist[0]+'#'+nolist[0]+'#'+maxlist[0]+'#'+minlist[0]+'#'+pricelist[-1])
+        f2.write(namelist[0]+'#'+nolist[0]+'#'+str(maxlist[0])+'#'+str(minlist[0])+'#'+pricelist[-1])
         f2.close()
         # print(maxlist,minlist,pricelist)
