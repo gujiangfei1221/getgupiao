@@ -33,7 +33,7 @@ def excel_table_byindex(file='/root/gupiao/模板.xlsx', colnameindex=0, by_inde
 def main():
     tables = excel_table_byindex()
     for row in tables:
-        if (row['股票名称'] != ''):
+        if (row['短期最低价'] != ''):
             f = open('/root/gupiao/data/' + (row['股票名称'] + row['股票代码']) + '.txt', 'a')
             f.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['短期最高价']) + "#" + str(row['短期最低价']) + "#" + '0')
             f.write('\n')
@@ -43,6 +43,7 @@ def main():
             f2.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['长期最低价']))
             f2.write('\n')
             f2.close()
+
             try:
                 #获取一个数据库连接，注意如果是UTF-8类型的，需要制定数据库
                 conn=pymysql.connect(host='localhost',user='root',passwd='ede1954b',db='codeigniter',port=3306,charset='utf8')
