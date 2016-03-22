@@ -1,11 +1,12 @@
 #-*- coding=utf-8 -*-
 import os.path
 
-rootdir = '/root/gupiao/data/'
+rootdir = 'data/'
 
 
 for parent,dirnames,filenames in os.walk(rootdir):
     for filename in filenames:
+        print(filename)
         namelist = []
         nolist = []
         maxlist = []
