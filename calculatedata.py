@@ -1,7 +1,7 @@
 #-*- coding=utf-8 -*-
 import os.path
 
-rootdir = 'data/'
+rootdir = '/root/gupiao/data/'
 
 
 for parent,dirnames,filenames in os.walk(rootdir):
@@ -11,17 +11,17 @@ for parent,dirnames,filenames in os.walk(rootdir):
         maxlist = []
         minlist = []
         pricelist = []
-        f = open('data/'+filename,'r+')
+        f = open('/root/gupiao/data/'+filename,'r+')
         for i in f.readlines():
             tmp = i.split('#')
             namelist.append(tmp[0])
             nolist.append(tmp[1])
-            if(tmp[2] != ''):
+            if(tmp[2] != '' and float(tmp[2]) != 0):
                 maxlist.append(float(tmp[2]))
             else:
                 # maxlist.append(0.0)
                 continue
-            if(tmp[3] != ''):
+            if(tmp[3] != '' and float(tmp[3]) != 0):
                 minlist.append(float(tmp[3]))
             else:
                 # minlist.append(0.0)
@@ -32,7 +32,9 @@ for parent,dirnames,filenames in os.walk(rootdir):
         maxlist.sort(reverse= True)
         minlist.sort(reverse= False)
 
-        f2 = open('result/'+filename,'w')
-        f2.write(namelist[0]+'#'+nolist[0]+'#'+str(maxlist[0])+'#'+str(minlist[0])+'#'+pricelist[-1])
-        f2.close()
+        if(maxlist and minlist):
+            f2 = open('/root/gupiao/result/'+filename,'w')
+            f2.write(namelist[0]+'#'+nolist[0]+'#'+str(maxlist[0])+'#'+str(minlist[0])+'#'+pricelist[-1])
+            f2.close()
+
         # print(maxlist,minlist,pricelist)

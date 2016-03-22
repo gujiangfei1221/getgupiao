@@ -14,7 +14,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
             tmp = i.split('#')
             namelist.append(tmp[0])
             nolist.append(tmp[1])
-            if(tmp[2].strip() != ''):
+            if(tmp[2].strip() != '' and float(tmp[2].strip()) != 0):
                 minlist.append(float(tmp[2].strip()))
             else:
                 # minlist.append(0.0)

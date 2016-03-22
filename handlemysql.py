@@ -21,7 +21,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
             f2 = open('/root/gupiao/result2/'+filename,'r+')
             list.append(f2.readline().strip())
             f2.close()
-
+            # print('短期最高价：'+list[2],'短期最低价：'+list[3],'当前价格：'+list[4],'长期最低价：'+list[5])
             if(list[2] != '' and list[3] != '' and list[4] != ''):
                 if((float(list[2])-float(list[3])) != 0):
                     jiazhipaixu1 = (float(list[2])-float(list[4]))/(float(list[2])-float(list[3]))
