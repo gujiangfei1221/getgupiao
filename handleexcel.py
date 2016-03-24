@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
 
-import xlrd, pymysql
+import xlrd, pymysql,time
 
 
 def open_excel(file='/root/gupiao/模板.xlsx'):
@@ -35,12 +35,12 @@ def main():
     for row in tables:
         if (row['短期最低价'] != ''):
             f = open('/root/gupiao/data/' + (row['股票名称'] + row['股票代码']) + '.txt', 'a')
-            f.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['短期最高价']) + "#" + str(row['短期最低价']) + "#" + '0')
+            f.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['短期最高价']) + "#" + str(row['短期最低价']) + "#" + '0' + '#' + time.strftime("%Y-%m-%d", time.localtime()))
             f.write('\n')
             f.close()
 
             f2 = open('/root/gupiao/data2/' + (row['股票名称'] + row['股票代码']) + '.txt', 'a')
-            f2.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['长期最低价']))
+            f2.write(str(row['股票名称']) + "#" + str(row['股票代码']) + "#" + str(row['长期最低价']) + '#' + time.strftime("%Y-%m-%d", time.localtime()))
             f2.write('\n')
             f2.close()
 

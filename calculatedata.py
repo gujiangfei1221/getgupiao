@@ -1,7 +1,7 @@
 #-*- coding=utf-8 -*-
-import os.path
+import os.path,time
 
-rootdir = 'data/'
+rootdir = '/root/gupiao/data/'
 
 
 for parent,dirnames,filenames in os.walk(rootdir):
@@ -35,7 +35,7 @@ for parent,dirnames,filenames in os.walk(rootdir):
 
         if(maxlist and minlist):
             f2 = open('/root/gupiao/result/'+filename,'w')
-            f2.write(namelist[0]+'#'+nolist[0]+'#'+str(maxlist[0])+'#'+str(minlist[0])+'#'+pricelist[-1])
+            f2.write(namelist[0]+'#'+nolist[0]+'#'+str(maxlist[0])+'#'+str(minlist[0])+'#'+pricelist[-1] + '#' + time.strftime("%Y-%m-%d", time.localtime()))
             f2.close()
 
         # print(maxlist,minlist,pricelist)

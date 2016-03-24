@@ -19,7 +19,9 @@ for parent,dirnames,filenames in os.walk(rootdir):
             f.close()
 
             f2 = open('/root/gupiao/result2/'+filename,'r+')
-            list.append(f2.readline().strip())
+            for i in f2.readlines():
+                tmp2 = i.split('#')
+                list.append(tmp2[0].strip())
             f2.close()
             # print('短期最高价：'+list[2],'短期最低价：'+list[3],'当前价格：'+list[4],'长期最低价：'+list[5])
             if(list[2] != '' and list[3] != '' and list[4] != ''):

@@ -322,8 +322,8 @@ def getChinaStockIndividualInfo(stockCode, day):
         # + ",总手:" + str(stockVolume) + "万" + ",金额:" + str(stockMoney) \
         # + "亿" + ",更新时间:" + stockTime + "  "
 
-        if (os.path.exists('data2/' + (stockName + stockCode) + '.txt')):
-            f = open('data2/' + (stockName + stockCode) + '.txt', 'r+')
+        if (os.path.exists('/root/gupiao/data2/' + (stockName + stockCode) + '.txt')):
+            f = open('/root/gupiao/data2/' + (stockName + stockCode) + '.txt', 'r+')
             line = f.readlines()
             num = len(line)
             # print(num)
@@ -331,13 +331,13 @@ def getChinaStockIndividualInfo(stockCode, day):
                 for i in range(0, num - day):
                     line.pop(i)
             f.close()
-            f2 = open('data2/' + (stockName + stockCode) + '.txt', 'w')
+            f2 = open('/root/gupiao/data2/' + (stockName + stockCode) + '.txt', 'w')
             for i in line:
                 f2.writelines(i)
             f2.close()
 
-        f3 = open('data2/' + (stockName + stockCode) + '.txt', 'a+')
-        f3.write(stockName + "#"+stockCode + "#"+ stockMin )
+        f3 = open('/root/gupiao/data2/' + (stockName + stockCode) + '.txt', 'a+')
+        f3.write(stockName + "#"+stockCode + "#"+ stockMin + '#' + time.strftime("%Y-%m-%d", time.localtime()) )
         f3.write('\n')
         f3.close()
 
