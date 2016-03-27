@@ -27,12 +27,14 @@ for parent,dirnames,filenames in os.walk(rootdir):
             if(list[2] != '' and list[3] != '' and list[4] != ''):
                 if((float(list[2])-float(list[3])) != 0):
                     jiazhipaixu1 = (float(list[2])-float(list[4]))/(float(list[2])-float(list[3]))
+                    jiazhipaixu1 = round(jiazhipaixu1,4)
             else:
                 continue
 
             if(list[5] != '' and list[4] != ''):
                 if(float(list[5]) != 0):
                     fengxianpaixu1 = (float(list[5])- float(list[4]))/float(list[5])
+                    fengxianpaixu1 = round(fengxianpaixu1,4)
             else:
                 continue
 
