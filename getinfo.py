@@ -291,7 +291,7 @@ ChinaStockIndividualList = ['sz002345', 'sz002021', 'sh000953', 'sz000895', 'sh6
                             'sh600684', 'sz000739', 'sz000637', 'sh600352', 'sz399325', 'sz000400', 'sh000048',
                             'sh600119']
 
-day = 150
+day = 14
 
 
 # 国内股票数据：个股
@@ -321,6 +321,11 @@ def getChinaStockIndividualInfo(stockCode, day):
         # + ",涨跌:" + str(stockUp) + ",幅度:" + str(stockRange) + "%" \
         # + ",总手:" + str(stockVolume) + "万" + ",金额:" + str(stockMoney) \
         # + "亿" + ",更新时间:" + stockTime + "  "
+
+        f0 = open('/root/gupiao/databack1/' + (stockName + stockCode) + '.txt', 'a+')
+        f0.write(stockName + "#"+stockCode + "#"+stockMax + "#" + stockMin + "#" + stockCur + '#' + time.strftime("%Y-%m-%d", time.localtime()))
+        f0.write('\n')
+        f0.close()
 
         if (os.path.exists('/root/gupiao/data/' + (stockName + stockCode) + '.txt')):
             f = open('/root/gupiao/data/' + (stockName + stockCode) + '.txt', 'r+')
